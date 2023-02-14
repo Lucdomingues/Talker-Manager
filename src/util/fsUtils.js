@@ -10,6 +10,18 @@ async function readFs() {
     }
 }
 
+async function writeFs(newElement) {
+    try {
+        const path = 'src/talker.json';
+        const oldElement = await readFs();
+        await fs.writeFile(path, JSON.stringify([...oldElement, newElement]));
+        return true;
+    } catch (error) {
+        return console.error(`Não foi possível escrever o arquivo: ${error.message}`);
+    }
+}
+
 module.exports = {
     readFs,
+    writeFs,
 };

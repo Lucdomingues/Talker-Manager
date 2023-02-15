@@ -78,6 +78,15 @@ router.put('/:id', validateToken,
     readFile[index] = updateTalker;
     await writeFs(path, JSON.stringify([...readFile]));
     return res.status(200).json(readFile[index]);
- });
+    });
+ 
+router.delete('/:id', validateToken, async (req, res) => {
+    const { id } = req.params;
+    const readFile = await readFs();
+    const index = readFile.findIndex((element) => element.id === Number(id));
+    readFile.splice(index, 1);
+    await writeFs(path, JSON.stringify([...readFile]));
+    return res.status(204).json();
+});
 
 module.exports = router;

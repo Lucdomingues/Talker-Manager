@@ -6,7 +6,9 @@ const {
     validateTalk, 
     validateAge,
     validateRate,
-     } = require('../middlewares/validateTalk');
+} = require('../middlewares/validateTalk');
+     
+const path = 'src/talker.json';
 
 const router = express.Router();
 
@@ -53,12 +55,29 @@ router.post('/',
             age,
             talk,
         };
-        await writeFs(newTalker);
+        const oldElement = await readFs();
+        await writeFs(path, JSON.stringify([...oldElement, newTalker]));
         return res.status(201).json(newTalker);
     } catch (error) {
         console.error(error);
         return res.status(500).json({ message: error.message });
     }
-});
+    });
+
+router.put('/:id', validateToken,
+    validateName,
+    validateAge,
+    validateTalk,
+    validateRate,
+    async (req, res) => {
+    const { id } = req.params;
+    const { name, age, talk } = req.body;
+    const readFile = await readFs();
+    const index = readFile.findIndex((element) => element.id === Number(id));
+    const updateTalker = { id: Number(id), name, age, talk };
+    readFile[index] = updateTalker;
+    await writeFs(path, JSON.stringify([...readFile]));
+    return res.status(200).json(readFile[index]);
+ });
 
 module.exports = router;

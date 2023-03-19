@@ -80,7 +80,6 @@ Alguns endpoints que leem e escrevem um arquivo utilizando o módulo fs.
 * <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original-wordmark.svg" alt="docker" width="50" height="50"/>
 * <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="java-script" width="50" height="50"/>
 * <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg" alt="node" width="50" height="50"/>
-* <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sequelize/sequelize-original.svg" alt="sequelize" width="50" height="50"/>
 * <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg" alt="express" width="50" height="50"/>
 * <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="50" height="50"/>
 * <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-plain-wordmark.svg" alt="git" width="50" height="50"/>
@@ -99,7 +98,7 @@ Para fazer um **COPY** desse projeto em sua máquina localmente, siga às etapas
 
   - Use o comando: 
    ```sh
-   git clone git@github.com:Lucdomingues/Blogs-Api.git
+   git clone git@github.com:Lucdomingues/Talker-Manager.git
    ```
   2. Instale as dependências
    ```sh
